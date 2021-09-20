@@ -6,6 +6,7 @@ import 'features/pokemon_dictionary/presentation/model/pokemon.dart';
 void main() {
   runApp(new MaterialApp(
     home: PokemonDictionary(),
+    theme: ThemeData.dark(),
   ));
 }
 
@@ -37,14 +38,15 @@ class _PokemonDictionaryState extends State<PokemonDictionary> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        backgroundColor: Colors.green,
+    return new Scaffold(       
         appBar: new AppBar(
             title: new Text("Pokemon Dictionary"),
             actions: [Icon(Icons.search)],
-            backgroundColor: Colors.grey),
+            //backgroundColor: Colors.grey,
+            ),
         body: Column(
           children: [
+            // ignore: unnecessary_null_comparison
             _pokedex != null ? Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

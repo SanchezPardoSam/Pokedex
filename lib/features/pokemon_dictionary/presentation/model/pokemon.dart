@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
 class Pokemon {
   String name;
   String img;
   int id;
-  var type ;
+  var type;
 
   factory Pokemon(Map jsonMap) {
     try {
@@ -17,4 +19,34 @@ class Pokemon {
         img = json["img"],
         type = json["type"].toList(),
         name = json["name"];
+
+  Map<String, List<String>> _genreMap = {
+    'Grass': ["#047857","#10B981"],
+    "Poison": ["#4338CA","#8B5CF6"],
+    "Fire": ["#B91C1C","#EF4444"],
+    "Ice": ["#60A5FA","#BFDBFE"],
+    "Water": ["#1D4ED8","#3B82F6"],
+    "Ground": ["#78350F","#B45309"],
+    "Rock": ["#92400E","#D97706"],
+    "Psychic": ["#8B5CF6", "#6D28D9"],
+    "Dragon": ["#818CF8", "#4F46E5"],
+    "Electric": ["#FBBF24", "#F59E0B"],
+    "Fighting": ["#D1D5DB", "#9CA3AF"],
+    "Flying": ["#9CA3AF", "#93C5FD"],
+    "Fairy": ["#F9A8D4", "#F472B6"],
+    "Bug": ["#A78BFA", "#7C3AED"],
+    "Normal": ["#9CA3AF", "#D1D5DB"],
+    "Ghost": ["#6366F1", "#312E81"],
+
+  };
+
+  List<String>? getColorListType(String type) {     
+    return _genreMap[type];
+  }
+  String getColorBackground(List<String> type){
+    return type[0];
+  }
+   String getColorType(List<String> type){
+    return type[1];
+  }
 }
