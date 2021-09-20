@@ -58,7 +58,7 @@ class _PokemonDictionaryState extends State<PokemonDictionary> {
               ),
             ):Center(
               child: CircularProgressIndicator(),
-            )
+            ),
           ],
         ));
   }

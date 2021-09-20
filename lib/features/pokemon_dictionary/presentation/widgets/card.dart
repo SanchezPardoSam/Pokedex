@@ -11,7 +11,7 @@ class CardPokemon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: HexColor.fromHex(typePokemon(pokemon.type[0])),
+      color: HexColor.fromHex(pokemon.getColorBackground(pokemon.type[0])),
       child: Stack(
         children: [
           Positioned(
@@ -27,7 +27,7 @@ class CardPokemon extends StatelessWidget {
             left: 10,
             child: (Text(
               pokemon.name,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
             )),
           ),
           Positioned(
@@ -39,11 +39,11 @@ class CardPokemon extends StatelessWidget {
                     left: 8.0, top: 4, bottom: 4, right: 8.0),
                 child: (Text(
                   pokemon.type.toList()[0],
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
                 )),
               ),
               decoration: BoxDecoration(
-                  color: HexColor.fromHex('#DC2626'),
+                  color: HexColor.fromHex(pokemon.getColorType(pokemon.type[0])),
                   //pokemon.getColorType(pokemon.type[0]),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
@@ -63,9 +63,5 @@ class CardPokemon extends StatelessWidget {
   }
 
   // ignore: non_constant_identifier_names
-  String typePokemon(String pokemonList) {
-    List<String> typeColor = [];
-    typeColor = pokemon.getColorListType(pokemonList);
-    return typeColor;
-  }
+
 }
