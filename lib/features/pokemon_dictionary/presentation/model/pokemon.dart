@@ -4,6 +4,7 @@ class Pokemon {
   String name;
   String img;
   int id;
+  String number;
   var type;
 
   factory Pokemon(Map jsonMap) {
@@ -16,6 +17,7 @@ class Pokemon {
 
   Pokemon.deserialize(Map json)
       : id = json["id"],
+        number = json["num"],
         img = json["img"],
         type = json["type"].toList(),
         name = json["name"];
@@ -45,11 +47,11 @@ class Pokemon {
 
   String getColorBackground(String type) {
     var listColor = getColorListType(type);
-    return listColor!.toList()[0];
+    return listColor!.toList()[1];
   }
 
   String getColorType(String type) {
     var listColor = getColorListType(type);
-    return listColor!.toList()[1];
+    return listColor!.toList()[0];
   }
 }
