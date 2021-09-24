@@ -1,11 +1,15 @@
-import 'package:flutter/material.dart';
-
 class Pokemon {
   String name;
   String img;
   int id;
   String number;
   var type;
+  String height;
+  String weight;
+  String spawnTime;
+  var evolution;
+  var preForm;
+  var weakness;
 
   factory Pokemon(Map jsonMap) {
     try {
@@ -17,6 +21,12 @@ class Pokemon {
 
   Pokemon.deserialize(Map json)
       : id = json["id"],
+        height = json["height"],
+        weight = json["weight"],
+        spawnTime = json["spawn_time"],
+        evolution = json["next_evolution"],
+        preForm = json["prev_evolution"],
+        weakness = json["weaknesses"].toList(),
         number = json["num"],
         img = json["img"],
         type = json["type"].toList(),

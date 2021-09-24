@@ -27,13 +27,16 @@ class CardPokemon extends StatelessWidget {
             top: -25, */
             right: -5,
             bottom: 5,
-            child: (CachedNetworkImage(
-              imageUrl: /* 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', */
-              pokemon.img,
-              /* height: 200, */
-              height: 100,
-              fit: BoxFit.fitHeight,
-            )),
+            child: Hero(
+              tag: pokemon.id - 1,
+              child: (CachedNetworkImage(
+                imageUrl: /* 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', */
+                pokemon.img,
+                /* height: 200, */
+                height: 100,
+                fit: BoxFit.fitHeight,
+              )),
+            ),
           ),
           Positioned(
             top: 20,
