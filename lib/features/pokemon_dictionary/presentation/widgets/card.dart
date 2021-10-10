@@ -22,6 +22,22 @@ class CardPokemon extends StatelessWidget {
                 height: 100,
                 fit: BoxFit.fitHeight)),
           ),
+           Positioned(
+            /* right: -60,
+            top: -25, */
+            right: -5,
+            bottom: 5,
+            child: Hero(
+              tag: pokemon.id - 1,
+              child: (CachedNetworkImage(
+                imageUrl: /* 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', */
+                pokemon.img,
+                /* height: 200, */
+                height: 100,
+                fit: BoxFit.fitHeight,
+              )),
+            ),
+          ),
           Positioned(
             top: 20,
             left: 10,
@@ -32,7 +48,7 @@ class CardPokemon extends StatelessWidget {
           ),
           Positioned(
             top: 47,
-            left: 20,
+            left: 10,
             child: Container(
               child: Padding(
                 padding: const EdgeInsets.only(
@@ -48,15 +64,7 @@ class CardPokemon extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
           ),
-          Positioned(
-            right: 5,
-            bottom: 5,
-            child: (CachedNetworkImage(
-              imageUrl: pokemon.img,
-              height: 80,
-              fit: BoxFit.fitHeight,
-            )),
-          ),
+         
         ],
       ),
     );
